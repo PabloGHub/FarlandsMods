@@ -1,5 +1,6 @@
 # FarlandsMods
 Repositorio Oficial de FarlandsMods el "Inyector" para el juego Farlands
+---
 >Para crear un mod solo tenies que hacer algo parecido y FarlandsMods ara el resto para que el Inyector lo introduzca
 ```cshard
 namespace FarlandsMods
@@ -18,6 +19,5 @@ namespace FarlandsMods
     }
 }
 ```
----
 ## Original:
 https://github.com/avail/UnityAssemblyInjector/blob/vrcmod/README.markdown
