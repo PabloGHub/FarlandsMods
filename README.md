@@ -26,8 +26,8 @@ El Mod FarlandsMods esta en la Rama `master`
 The FarlandsMods Mod is in the `master` Branch
 ## Cosas ah añadir
 * Sistema de Debug para que se pueda poner Console.writer
-* Sistema para poder utilizar `Start` o `Updatte` de unity o parecido
+* Sistema para poder utilizar `Start` o `Update` de unity o parecido
 * Sistema para poder añadir un script a un objeto
->Muchos de estos problemas no se si es por mi falta de experiencia o por estart encriptado el juego
+>Muchos de estos problemas no se si es por mi falta de experiencia o por estar encriptado el juego
 ## Original:
 https://github.com/avail/UnityAssemblyInjector/blob/vrcmod/README.markdown
