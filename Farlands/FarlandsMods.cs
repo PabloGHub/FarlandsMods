@@ -27,8 +27,8 @@ namespace FarlandsMods
             {
                 new FarlandsMods().LoadMods();
 
-                ConsoleHelper.InitializeConsole();
-                Thread.Sleep(2000);
+                //ConsoleHelper.InitializeConsole();
+                //Thread.Sleep(2000);
                 Console.WriteLine("FarlandsMods Iniciado");
             }).Start();
         }
