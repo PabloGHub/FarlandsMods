@@ -23,6 +23,11 @@ namespace FarlandsMods
 }
 ```
 ---
+# Rules/Normal
+* namespace -> FarlandsMods  
+* public static main metod/function -> StaticInitMethod()
+* name archive = name public class main
+---
 El Mod FarlandsMods esta en la Rama [master](https://github.com/PabloGHub/FarlandsMods/tree/master)  
 The FarlandsMods Mod is in the [master](https://github.com/PabloGHub/FarlandsMods/tree/master) Branch
 ## Cosas ah añadir
