@@ -1,6 +1,5 @@
 # FarlandsMods
-## How To Install
-https://youtu.be/Gpo-QAMXKro
+[How To Install](https://youtu.be/Gpo-QAMXKro)
 >Repositorio Oficial de FarlandsMods el "Inyector" para el juego Farlands  
 >Official Repository of FarlandsMods the "Injector" for the game Farlands
 ---
