@@ -23,7 +23,7 @@ namespace FarlandsMods
 }
 ```
 ---
-# Rules/Normal
+# Rules/Normas
 * namespace -> FarlandsMods  
 * public static main metod/function -> StaticInitMethod()
 * name archive = name public class main
