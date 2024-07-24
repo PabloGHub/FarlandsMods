@@ -45,7 +45,7 @@ namespace FarlandsMods
                 fmod.LoadMods();
                 fmod.crearTerminal();
 
-                Console.WriteLine("FarlandsMods Iniciado");
+                Terminal.Log("FarlandsMods Iniciado");
             }).Start();
         }
 

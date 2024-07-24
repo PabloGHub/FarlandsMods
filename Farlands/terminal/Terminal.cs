@@ -17,7 +17,7 @@ namespace CommandTerminal
         // --- Constructor d prueba --- //
         public Terminal()
         {
-            UnityEngine.Application.OpenURL("www.google.com/" + "Iniciado Correctamente terminal");
+            //UnityEngine.Application.OpenURL("www.google.com/" + "Iniciado Correctamente terminal");
         }
 
 
