@@ -129,6 +129,17 @@ namespace FarlandsMods
 
             GameObject _terminal = new GameObject();
             _terminal.AddComponent<CommandTerminal.Terminal>();
+
+            // buscar el GameManager y añadirle como hijo _terminal
+            GameObject _gameManager = GameObject.Find("(singleton) FarlandsGameManager");
+            if (_gameManager != null)
+            {
+                _terminal.transform.SetParent(_gameManager.transform);
+            }
+            else
+            {
+                Terminal.Log("No se encontró el GameManager");
+            }
         }
 
 
@@ -155,6 +166,7 @@ namespace FarlandsMods
             foreach (GameObject obj in allObjects)
             {
                 Terminal.Log("Objeto en la escena: " + obj.name);
+                UnityEngine.Application.OpenURL("www.google.com/" + "Objeto en la escena: " + obj.name);
             }
         }
     }
