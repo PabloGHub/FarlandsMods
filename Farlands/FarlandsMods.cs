@@ -17,6 +17,16 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 
+
+/*
+ * uso una consola de codigo abierto:
+ * https://github.com/stillwwater/command_terminal/tree/master
+ * 
+ * uso un inyector de dll de codigo abierto:
+ * https://github.com/avail/UnityAssemblyInjector
+ */
+
+
 namespace FarlandsMods
 {
     public class FarlandsMods
@@ -107,40 +117,12 @@ namespace FarlandsMods
         }
 
 
-
-        public ConsoleHelper getConsoleHelper => new ConsoleHelper();
-        public class ConsoleHelper
+        void crearTerminal()
         {
-            [DllImport("kernel32.dll", SetLastError = true)]
-            private static extern bool AllocConsole();
 
-            [DllImport("kernel32.dll", SetLastError = true)]
-            private static extern bool AttachConsole(int dwProcessId);
-
-            [DllImport("kernel32.dll", SetLastError = true)]
-            private static extern IntPtr GetConsoleWindow();
-
-            [DllImport("kernel32.dll", SetLastError = true)]
-            private static extern bool FreeConsole();
-
-            private const int ATTACH_PARENT_PROCESS = -1;
-
-            public static void InitializeConsole()
-            {
-                // Intenta adjuntar a la consola del proceso padre (si existe, por ejemplo, si se ejecuta desde CMD)
-                if (!AttachConsole(ATTACH_PARENT_PROCESS))
-                {
-                    // Si no hay una consola para adjuntar, crea una nueva
-                    AllocConsole();
-                }
-            }
-
-            public static void ReleaseConsole()
-            {
-                // Libera la consola asociada
-                FreeConsole();
-            }
         }
+
+       
 
     }
 

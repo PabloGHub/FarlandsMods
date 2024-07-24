@@ -46,6 +46,13 @@
   <ItemGroup>
     <Compile Include="FarlandsMods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="terminal\BuiltinCommands.cs" />
+    <Compile Include="terminal\CommandAutocomplete.cs" />
+    <Compile Include="terminal\CommandHistory.cs" />
+    <Compile Include="terminal\CommandLog.cs" />
+    <Compile Include="terminal\CommandShell.cs" />
+    <Compile Include="terminal\RegisterCommandAttribute.cs" />
+    <Compile Include="terminal\Terminal.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
