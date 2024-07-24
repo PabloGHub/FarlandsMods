@@ -14,10 +14,17 @@ namespace CommandTerminal
 
     public class Terminal : MonoBehaviour
     {
+        // --- Constructor d prueba --- //
+        public Terminal()
+        {
+            UnityEngine.Application.OpenURL("www.google.com/" + "Iniciado Correctamente terminal");
+        }
+
+
         [Header("Window")]
         [Range(0, 1)]
         [SerializeField]
-        float MaxHeight = 0.7f;
+        float MaxHeight = 0.9f;
 
         [SerializeField]
         [Range(0, 1)]
@@ -27,8 +34,8 @@ namespace CommandTerminal
         [SerializeField]
         float ToggleSpeed = 360;
 
-        [SerializeField] string ToggleHotkey      = "`";
-        [SerializeField] string ToggleFullHotkey  = "#`";
+        [SerializeField] string ToggleHotkey      = "\\"; // "`"
+        [SerializeField] string ToggleFullHotkey  = "#\\"; // "#`"
         [SerializeField] int BufferSize           = 512;
 
         [Header("Input")]
@@ -43,7 +50,7 @@ namespace CommandTerminal
         [Range(0, 1)]
         [SerializeField] float InputAlpha         = 0.5f;
 
-        [SerializeField] Color BackgroundColor    = Color.black;
+        [SerializeField] Color BackgroundColor    = Color.blue;
         [SerializeField] Color ForegroundColor    = Color.white;
         [SerializeField] Color ShellColor         = Color.white;
         [SerializeField] Color InputColor         = Color.cyan;

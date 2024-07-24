@@ -1,6 +1,7 @@
 using System.Text;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace CommandTerminal
 {
@@ -38,6 +39,7 @@ namespace CommandTerminal
             }
         }
 
+        /*
         [RegisterCommand(Help = "Time the execution of a command", MinArgCount = 1)]
         static void CommandTime(CommandArg[] args) {
             var sw = new Stopwatch();
@@ -48,12 +50,16 @@ namespace CommandTerminal
             sw.Stop();
             Terminal.Log("Time: {0}ms", (double)sw.ElapsedTicks / 10000);
         }
+        */
 
+        /*
         [RegisterCommand(Help = "Output message")]
         static void CommandPrint(CommandArg[] args) {
             Terminal.Log(JoinArguments(args));
         }
+        */
 
+        /*
     #if DEBUG
         [RegisterCommand(Help = "Output the stack trace of the previous message", MaxArgCount = 0)]
         static void CommandTrace(CommandArg[] args) {
@@ -73,7 +79,9 @@ namespace CommandTerminal
             }
         }
     #endif
+        */
 
+        
         [RegisterCommand(Help = "List all variables or set a variable value")]
         static void CommandSet(CommandArg[] args) {
             if (args.Length == 0) {
@@ -92,17 +100,16 @@ namespace CommandTerminal
             Terminal.Shell.SetVariable(variable_name, JoinArguments(args, 1));
         }
 
-        [RegisterCommand(Help = "No operation")]
-        static void CommandNoop(CommandArg[] args) { }
-
+        
         [RegisterCommand(Help = "Quit running application", MaxArgCount = 0)]
-        static void CommandQuit(CommandArg[] args) {
+        static void Commandsa(CommandArg[] args) {
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
         #else
             Application.Quit();
         #endif
         }
+        
 
         static string JoinArguments(CommandArg[] args, int start = 0) {
             var sb = new StringBuilder();
@@ -118,5 +125,7 @@ namespace CommandTerminal
 
             return sb.ToString();
         }
+
+
     }
 }

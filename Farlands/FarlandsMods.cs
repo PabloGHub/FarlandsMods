@@ -16,6 +16,8 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+using CommandTerminal;
 
 
 /*
@@ -29,16 +31,20 @@ using System.Collections.Generic;
 
 namespace FarlandsMods
 {
-    public class FarlandsMods
+    public class FarlandsMods : MonoBehaviour
     {
         public static void StaticInitMethod()
         {
             new Thread(() =>
             {
-                new FarlandsMods().LoadMods();
+                FarlandsMods fmod = new FarlandsMods();
 
-                //ConsoleHelper.InitializeConsole();
-                //Thread.Sleep(2000);
+                Thread.Sleep(2000);
+                SceneManager.LoadScene("MainMenu");
+
+                fmod.LoadMods();
+                fmod.crearTerminal();
+
                 Console.WriteLine("FarlandsMods Iniciado");
             }).Start();
         }
@@ -119,11 +125,38 @@ namespace FarlandsMods
 
         void crearTerminal()
         {
+            Thread.Sleep(2000);
 
+            GameObject _terminal = new GameObject();
+            _terminal.AddComponent<CommandTerminal.Terminal>();
         }
 
-       
 
+
+
+
+        // --- Comandos Fmods --- //
+        [RegisterCommand(Help = "Devuelve el nombre de la escena")]
+        static void CommandEscen(CommandArg[] args)
+        {
+            Scene _escenaActiva = SceneManager.GetActiveScene();
+            string _nombreEscena = _escenaActiva.name;
+            Terminal.Log("Nombre escena activa: " + _nombreEscena);
+        }
+
+
+
+
+        [RegisterCommand(Help = "Devuelve el nombre de todos los objetos de la escena")]
+        static void CommandObj(CommandArg[] args)
+        {
+            GameObject[] allObjects = FindObjectsOfType<GameObject>();
+
+            foreach (GameObject obj in allObjects)
+            {
+                Terminal.Log("Objeto en la escena: " + obj.name);
+            }
+        }
     }
 
 }
