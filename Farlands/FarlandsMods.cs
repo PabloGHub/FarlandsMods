@@ -121,7 +121,10 @@ namespace FarlandsMods
 
             File.WriteAllText(_DirecTXT, _datos);
             
-            Process.Start("Farlands Demo.exe");
+            if (Process.Start("Farlands.exe") == null)
+            {
+                Process.Start("Farlands Demo.exe");
+            }
             UnityEngine.Application.Quit();
         }
 
