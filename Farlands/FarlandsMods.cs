@@ -5,19 +5,15 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
-
 using UnityEngine;
-//using UnityEngine.UI;
 using System.Collections;
 using System.Diagnostics;
 using System.Threading;
 using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using CommandTerminal;
+using HarmonyLib;
 
 
 /*
@@ -26,6 +22,9 @@ using CommandTerminal;
  * 
  * uso un inyector de dll de codigo abierto:
  * https://github.com/avail/UnityAssemblyInjector
+ * 
+ * usa:
+ * https://github.com/BepInEx/HarmonyX
  */
 
 
@@ -39,13 +38,17 @@ namespace FarlandsMods
             {
                 FarlandsMods fmod = new FarlandsMods();
 
-                Thread.Sleep(2000);
-                SceneManager.LoadScene("MainMenu");
-
+                Thread.Sleep(1000);
                 fmod.LoadMods();
+
+                SceneManager.LoadScene("MainMenu");
                 fmod.crearTerminal();
 
                 Terminal.Log("FarlandsMods Iniciado");
+
+                var _harmony = new Harmony("farlandsmods");
+                _harmony.PatchAll();
+
             }).Start();
         }
 
@@ -123,9 +126,17 @@ namespace FarlandsMods
         }
 
 
+
+        // ---------------------------------------- Update y Start ---------------------------------------- //
+
+
+
+
+
+        // ---------------------------------------- TERMINAL ---------------------------------------- //
         void crearTerminal()
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(1000);
 
             GameObject _terminal = new GameObject();
             _terminal.AddComponent<CommandTerminal.Terminal>();
@@ -140,6 +151,10 @@ namespace FarlandsMods
             {
                 Terminal.Log("No se encontró el GameManager");
             }
+
+            Terminal.Log("Terminal Creada 1");
+            UnityEngine.Debug.Log("Terminal Creada 2");
+            Console.WriteLine("Terminal Creada 3");
         }
 
 
@@ -173,11 +188,31 @@ namespace FarlandsMods
 
 }
 
-// Define la ruta al archivo assemblies.txt
-//string _Ruta = Path.Combine(UnityEngine.Application.dataPath, "../assemblies.txt");
+/*
+    using System;
+    using System.Reflection;
 
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Ruta al archivo .dll
+            string dllPath = @"ruta\a\tu\archivo.dll";
 
-// ConsoleHelper.ReleaseConsole(); // Libera la consola asociada
+            // Cargar el ensamblado
+            Assembly assembly = Assembly.LoadFrom(dllPath);
+
+            // Obtener todos los tipos definidos en el ensamblado
+            Type[] types = assembly.GetTypes();
+
+            // Mostrar los namespaces de los tipos
+            foreach (Type type in types)
+            {
+                Console.WriteLine($"Namespace: {type.Namespace}, Tipo: {type.Name}");
+            }
+        }
+    }
+ */
 
 
 // ----------------------------------------
@@ -200,4 +235,8 @@ namespace FarlandsMods
 */
 
 
- //mods\\FarlandsMods.dll=FarlandsMods.FarlandsMods:StaticInitMethod
+//mods\\FarlandsMods.dll=FarlandsMods.FarlandsMods:StaticInitMethod
+
+
+// Direccion al UnityEngine.dll
+// C:\Program Files\Unity\Hub\Editor\2021.3.16f1\Editor\Data\Managed\UnityEngine
