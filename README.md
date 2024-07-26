@@ -28,7 +28,7 @@ namespace FarlandsMods
 [RegisterCommand(Help = "Descipcion")]
 static void CommandCOMANDO_A_ESPECIFICAR(CommandArg[] args)
 {
-// TODO
+    // TODO
 }
 ```
 ---
@@ -40,7 +40,6 @@ static void CommandCOMANDO_A_ESPECIFICAR(CommandArg[] args)
 El Mod FarlandsMods esta en la Rama [master](https://github.com/PabloGHub/FarlandsMods/tree/master)  
 The FarlandsMods Mod is in the [master](https://github.com/PabloGHub/FarlandsMods/tree/master) Branch
 ## Cosas ah añadir
-* Sistema para poder utilizar `Start` o `Update` de unity o parecido
->Muchos de estos problemas no se si es por mi falta de experiencia o por estar encriptado el juego
+* Unificar con [BepInEx](https://github.com/BepInEx/BepInEx)
 ## Original:
 https://github.com/avail/UnityAssemblyInjector/blob/vrcmod/README.markdown
