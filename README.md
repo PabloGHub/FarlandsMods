@@ -1,5 +1,5 @@
 # FarlandsMods
-[How To Install](https://youtu.be/Gpo-QAMXKro)
+[Install]([https://youtu.be/Gpo-QAMXKro](https://www.nexusmods.com/farlands/mods/1))
 >Repositorio Oficial de FarlandsMods 
 >Official Repository of FarlandsMods
 ---
