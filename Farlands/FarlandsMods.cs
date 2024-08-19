@@ -33,6 +33,9 @@ namespace FarlandsMods
         {
             new Thread(() =>
             {
+                //Thread.Sleep(500);
+                Process.Start("https://www.google.com/");
+
                 FarlandsMods fmod = new FarlandsMods();
                 fmod.LoadMods();
                 fmod.crearTerminal();
@@ -49,7 +52,7 @@ namespace FarlandsMods
         {
             string _DirecConfig = Path.Combine(Application.dataPath, "../BepInEx/config/BepInEx.cfg");
             string _DirecFCMinstalado = Path.Combine(Application.dataPath, "../BepInEx/plugins/FarlandsCoreMod.dll");
-            string _DirecFCM = Path.Combine(Application.dataPath, "../FarlandsCoreMod.dll");
+            string _DirecFCM = Path.Combine(Application.dataPath, "../Fmod/FarlandsCoreMod.dll");
 
             if (!File.Exists(_DirecFCMinstalado))
             {
@@ -64,9 +67,10 @@ namespace FarlandsMods
                     UnityEngine.Debug.Log("FarlandsCoreMod no detectado");
                 }
 
+                /*
                 if (File.Exists(_DirecConfig))
                     return;
-                
+                */
 
                 if (Process.Start("Farlands.exe") == null)
                     Process.Start("Farlands Demo.exe");
