@@ -48,8 +48,32 @@ namespace FarlandsMods
         void LoadMods()
         {
 
+            string _DirecFCMinstalado = Path.Combine(Application.dataPath, "../BepInEx/plugins/FarlandsCoreMod.dll");
+            string _DirecFCM = Path.Combine(Application.dataPath, "../BepInEx/plugins/FarlandsCoreMod.dll");
 
-            
+            if (!File.Exists(_DirecFCMinstalado))
+            {
+                if (File.Exists(_DirecFCM))
+                {
+                    File.Move(_DirecFCM, _DirecFCMinstalado);
+                    UnityEngine.Debug.Log("FarlandsCoreMod movido a carpeta");
+
+                    if (Process.Start("Farlands.exe") == null)
+                    {
+                        Process.Start("Farlands Demo.exe");
+                    }
+                    UnityEngine.Application.Quit();
+                }
+                else
+                {
+                    UnityEngine.Debug.Log("FarlandsCoreMod no detectado");
+                }
+            }
+            else
+            {
+                UnityEngine.Debug.Log("No primera inicializacion detectada");
+            }
+
         }
         
 
@@ -109,12 +133,6 @@ namespace FarlandsMods
             int _indiceEscena = args[0].Int;
             SceneManager.LoadScene(_indiceEscena);
             Terminal.Log("Cargando escena: " + _indiceEscena);
-        }
-
-        [RegisterCommand(Help = "Reace la carpeta plugins")]
-        static void CommandRestMods(CommandArg[] args)
-        {
-            // TO
         }
 
 
