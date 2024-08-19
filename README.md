@@ -1,6 +1,6 @@
 # FarlandsMods
 [Install]([https://youtu.be/Gpo-QAMXKro](https://www.nexusmods.com/farlands/mods/1))
->Repositorio Oficial de FarlandsMods 
+>Repositorio Oficial de FarlandsMods   
 >Official Repository of FarlandsMods
 ---
 >Actualmente lo que hace es reiniciar el juego si detecta que es la primera vez con BepInEx (Puede dar fallos, estoy de pruebas) e insertar FCM
