@@ -34,7 +34,7 @@ namespace CommandTerminal
         [SerializeField]
         float ToggleSpeed = 360;
 
-        [SerializeField] string ToggleHotkey      = "\\"; // "`"
+        [SerializeField] string ToggleHotkey      = "`"; // "\\"
         [SerializeField] string ToggleFullHotkey  = "#\\"; // "#`"
         [SerializeField] int BufferSize           = 512;
 

@@ -13,7 +13,6 @@ using System.IO;
 using System.Reflection;
 using UnityEngine.SceneManagement;
 using CommandTerminal;
-using HarmonyLib;
 
 
 /*
@@ -23,8 +22,6 @@ using HarmonyLib;
  * uso un inyector de dll de codigo abierto:
  * https://github.com/avail/UnityAssemblyInjector
  * 
- * usa:
- * https://github.com/BepInEx/HarmonyX
  */
 
 
@@ -38,27 +35,26 @@ namespace FarlandsMods
             {
                 FarlandsMods fmod = new FarlandsMods();
 
-                Thread.Sleep(1000);
                 fmod.LoadMods();
-
-                SceneManager.LoadScene("MainMenu");
-                fmod.crearTerminal();
+                
+                //fmod.crearTerminal();
 
                 Terminal.Log("FarlandsMods Iniciado");
 
-                var _harmony = new Harmony("farlandsmods");
-                _harmony.PatchAll();
-
             }).Start();
+
         }
 
 
         void LoadMods()
         {
-            //alerta("FarlandsMods", "FarlandsMods se ah iniciado");
+
+
+            /*
+            UnityEngine.Debug.Log("Cargando Mods");
 
             // Define la ruta al archivo assemblies.txt
-            string _DirecTXT = Path.Combine(UnityEngine.Application.dataPath, "../assemblies.txt");
+            string _DirecTXT = Path.Combine(UnityEngine.Application.dataPath, "../mods.txt"); // assemblies.txt
 
             if (File.Exists(_DirecTXT))
             {
@@ -104,12 +100,15 @@ namespace FarlandsMods
             }
             else
             {
-                UnityEngine.Application.OpenURL("www.google.com/" + "No se encontró el archivo assemblies.txt");
+                //UnityEngine.Application.OpenURL("www.google.com/" + "No se encontró el archivo assemblies.txt");
+                Console.WriteLine("No se encontró el archivo assemblies.txt");
             }
+            */
         }
 
 
-        //borar y reacer assemblies.txt 
+        //borar y reacer assemblies.txt
+        /*
         void reacer(String _DirecTXT, List<String> _mods)
         {
             String _datos = "";
@@ -127,11 +126,7 @@ namespace FarlandsMods
             }
             UnityEngine.Application.Quit();
         }
-
-
-
-        // ---------------------------------------- Update y Start ---------------------------------------- //
-
+        */
 
 
 
@@ -174,19 +169,43 @@ namespace FarlandsMods
         }
 
 
-
-
-        [RegisterCommand(Help = "Devuelve el nombre de todos los objetos de la escena")]
-        static void CommandObj(CommandArg[] args)
+        [RegisterCommand(Help = "Carga la escena indicada por nombre")]
+        static void Commandtp(CommandArg[] args)
         {
-            GameObject[] allObjects = FindObjectsOfType<GameObject>();
-
-            foreach (GameObject obj in allObjects)
-            {
-                Terminal.Log("Objeto en la escena: " + obj.name);
-                UnityEngine.Application.OpenURL("www.google.com/" + "Objeto en la escena: " + obj.name);
-            }
+            string _nombreEscena = args[0].String;
+            SceneManager.LoadScene(_nombreEscena);
+            Terminal.Log("Cargando escena: " + _nombreEscena);
         }
+
+
+        [RegisterCommand(Help = "Carga la escena indicada por indice")]
+        static void Commandtpi(CommandArg[] args)
+        {
+            int _indiceEscena = args[0].Int;
+            SceneManager.LoadScene(_indiceEscena);
+            Terminal.Log("Cargando escena: " + _indiceEscena);
+        }
+
+        [RegisterCommand(Help = "Reace la carpeta plugins")]
+        static void CommandRestMods(CommandArg[] args)
+        {
+            // TO
+        }
+
+
+        /*
+            [RegisterCommand(Help = "Devuelve el nombre de todos los objetos de la escena")]
+            static void CommandObj(CommandArg[] args)
+            {
+                GameObject[] allObjects = FindObjectsOfType<GameObject>();
+
+                foreach (GameObject obj in allObjects)
+                {
+                    Terminal.Log("Objeto en la escena: " + obj.name);
+                    UnityEngine.Application.OpenURL("www.google.com/" + "Objeto en la escena: " + obj.name);
+                }
+            }
+        */
     }
 
 }

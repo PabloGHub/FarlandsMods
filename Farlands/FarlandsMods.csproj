@@ -31,8 +31,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>..\..\dependencias\0Harmony.dll</HintPath>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Farlands\Farlands_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\Farlands\Farlands_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -56,6 +59,12 @@
     <Compile Include="terminal\CommandShell.cs" />
     <Compile Include="terminal\RegisterCommandAttribute.cs" />
     <Compile Include="terminal\Terminal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Dependencias\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="terminal\Ya no usados.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
