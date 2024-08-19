@@ -34,10 +34,9 @@ namespace FarlandsMods
             new Thread(() =>
             {
                 FarlandsMods fmod = new FarlandsMods();
-
                 fmod.LoadMods();
-                
-                //fmod.crearTerminal();
+                fmod.crearTerminal();
+
 
                 Terminal.Log("FarlandsMods Iniciado");
 
@@ -50,83 +49,9 @@ namespace FarlandsMods
         {
 
 
-            /*
-            UnityEngine.Debug.Log("Cargando Mods");
-
-            // Define la ruta al archivo assemblies.txt
-            string _DirecTXT = Path.Combine(UnityEngine.Application.dataPath, "../mods.txt"); // assemblies.txt
-
-            if (File.Exists(_DirecTXT))
-            {
-                // Lee todas las líneas del archivo
-                string[] _txt = File.ReadAllLines(_DirecTXT);
-                List<string> _mods = new List<string>();
-
-
-                // Obtener los nombres de los archivos .dll en la carpeta mods
-                string _direcMods = Path.Combine(UnityEngine.Application.dataPath, "../mods");
-                string[] _dll = Directory.GetFiles(_direcMods, "*.dll");
-
-                foreach (string dllFile in _dll)
-                {
-                    string modName = Path.GetFileNameWithoutExtension(dllFile);
-                    _mods.Add(modName);
-                    //UnityEngine.Application.OpenURL("www.google.com/" + "modName en CARPETA: "+modName);
-                }
-
-
-                if (_txt.Length != _dll.Length)
-                {
-                    reacer(_DirecTXT, _mods);
-                    return;
-                }
-
-
-                // Comprueba que cada línea del archivo sea correcta
-                // Si no, pararlo y reacer el archivo assemblies.txt
-                int _i = 0;
-                foreach (string _linea in _txt)
-                {
-                    String _com = "mods\\\\"+ _mods[_i] +".dll=FarlandsMods." + _mods[_i] + ":StaticInitMethod";
-
-                    if (_linea != _com)
-                    {
-                        reacer(_DirecTXT, _mods);
-                        return;
-                    }
-                    _i++;
-                }
-
-            }
-            else
-            {
-                //UnityEngine.Application.OpenURL("www.google.com/" + "No se encontró el archivo assemblies.txt");
-                Console.WriteLine("No se encontró el archivo assemblies.txt");
-            }
-            */
-        }
-
-
-        //borar y reacer assemblies.txt
-        /*
-        void reacer(String _DirecTXT, List<String> _mods)
-        {
-            String _datos = "";
-
-            foreach (String _mod in _mods)
-            {
-                _datos += "mods\\\\" + _mod + ".dll=FarlandsMods." + _mod + ":StaticInitMethod\n";
-            }
-
-            File.WriteAllText(_DirecTXT, _datos);
             
-            if (Process.Start("Farlands.exe") == null)
-            {
-                Process.Start("Farlands Demo.exe");
-            }
-            UnityEngine.Application.Quit();
         }
-        */
+        
 
 
 
