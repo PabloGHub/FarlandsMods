@@ -47,27 +47,31 @@ namespace FarlandsMods
 
         void LoadMods()
         {
-
+            string _DirecConfig = Path.Combine(Application.dataPath, "../BepInEx/config/BepInEx.cfg");
             string _DirecFCMinstalado = Path.Combine(Application.dataPath, "../BepInEx/plugins/FarlandsCoreMod.dll");
-            string _DirecFCM = Path.Combine(Application.dataPath, "../BepInEx/plugins/FarlandsCoreMod.dll");
+            string _DirecFCM = Path.Combine(Application.dataPath, "../FarlandsCoreMod.dll");
 
             if (!File.Exists(_DirecFCMinstalado))
             {
+
                 if (File.Exists(_DirecFCM))
                 {
                     File.Move(_DirecFCM, _DirecFCMinstalado);
                     UnityEngine.Debug.Log("FarlandsCoreMod movido a carpeta");
-
-                    if (Process.Start("Farlands.exe") == null)
-                    {
-                        Process.Start("Farlands Demo.exe");
-                    }
-                    UnityEngine.Application.Quit();
                 }
                 else
                 {
                     UnityEngine.Debug.Log("FarlandsCoreMod no detectado");
                 }
+
+                if (File.Exists(_DirecConfig))
+                    return;
+                
+
+                if (Process.Start("Farlands.exe") == null)
+                    Process.Start("Farlands Demo.exe");
+
+                UnityEngine.Application.Quit();
             }
             else
             {

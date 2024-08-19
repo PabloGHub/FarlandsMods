@@ -60,9 +60,10 @@
     <Compile Include="terminal\RegisterCommandAttribute.cs" />
     <Compile Include="terminal\Terminal.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="introducir\FarlandsCoreMod.dll" />
+    <Folder Include="introducir\" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Ya no usados.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
